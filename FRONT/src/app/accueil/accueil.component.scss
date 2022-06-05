@@ -1,0 +1,25 @@
+/* .bg {
+    background-image: url(../../assets/calendar.jpg)
+} */
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.box{
+
+        border:0px solid #fff; padding:50px 60px;margin-top:25vh;
+        -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+        box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+        border-radius: 85px;
+        width: 600px !important;
+        margin-left: 30px;
+
+}
+/* .bg{
+    background-image: url('../../assets/auth.jpg');
+} */
+a{
+    color: purple;
+    font-size: 20px;
+}

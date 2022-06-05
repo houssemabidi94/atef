@@ -1,0 +1,58 @@
+<h3>All Employees</h3>
+
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> Username </th>
+      <td mat-cell *matCellDef="let element"> {{element.username }} </td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="startTime">
+      <th mat-header-cell *matHeaderCellDef> startTime </th>
+      <td mat-cell *matCellDef="let element"> {{element.startTime}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="endTime">
+      <th mat-header-cell *matHeaderCellDef> endTime </th>
+      <td mat-cell *matCellDef="let element"> {{element.endTime}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="daysoff">
+      <th mat-header-cell *matHeaderCellDef> nb of days off </th>
+      <td mat-cell *matCellDef="let element"> {{element.daysoff}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salary">
+      <th mat-header-cell *matHeaderCellDef> Salary </th>
+      <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nbabsence">
+      <th mat-header-cell *matHeaderCellDef> nbabsence </th>
+      <td mat-cell *matCellDef="let element"> {{element.nbabsence}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nbdaysofdelay">
+      <th mat-header-cell *matHeaderCellDef> nb of days of delay </th>
+      <td mat-cell *matCellDef="let element"> {{element.nbdaysofdelay}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
