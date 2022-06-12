@@ -40,18 +40,18 @@ All Employees
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let users of user">
+          <td>{{users.id}}</td>
+          <td>{{users.firstName}}</td>
+          <td>{{users.lastName}}</td>
 
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{users.username}}</td>
+          <td>{{users.address}}</td>
+          <td>{{users.startTime | date :  "dd.MM.y"}}</td>
+          <td>{{users.endTime | date :  "dd.MM.y"}}</td>
+          <td>{{users.daysoff}}</td>
+          <td>{{users.nbabsence}}</td>
+          <td>{{users.nbdaysofdelay}}</td>
 
           <td>  <a  routerLink="/scores">display scores</a>
           </td>

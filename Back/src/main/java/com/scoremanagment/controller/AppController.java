@@ -100,10 +100,9 @@ public class AppController {
 
 		return userDao.findUserById(userId);
 	}
-	
-	@GetMapping("/users/{userId}")
-	public DAOUser getUserByToken(@PathVariable("userId") long userId) {
+	@GetMapping("/allusers")
+	public List<DAOUser> getUsers() {
 
-		return userDao.findUserById(userId);
+		return userDao.findAllUsers();
 	}
 } 

@@ -16,8 +16,13 @@ export class AllEmployeesService {
   constructor(private http: HttpClient) { }
 
 
-  getEmployees():Observable<User>
+  getEmployees():Observable<any>
   {
-    return this.http.get<User>(`${this.baseUrl}`);
+    return this.http.get<any[]>("http://localhost:8085/allusers");
+     }
+
+     getUserProfile():Observable<any>
+     {
+       return this.http.get<any[]>("http://localhost:8085/user");
      }
 }

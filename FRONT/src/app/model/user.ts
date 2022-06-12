@@ -12,5 +12,6 @@ export class User {
     salary:number;
     nbabsence:number;
     nbdaysofdelay:number;
+    nbheures: String;
     
 }

@@ -26,7 +26,7 @@
   <br>
   <div class="arrivaltime">You're logged in at {{date | date:'HH:mm:ss'}}</div>
   <br>
-  <p class="username"><b>username</b>   </p>
+  <p class="username"><b>username</b> {{user.username}}  </p>
 <br>
 <br>
 
@@ -34,41 +34,41 @@
   <tbody>
 
   <tr>
-    <th>Id : </th> 
+    <th>Id : {{user.id}}</th> 
     <th></th>
   </tr>
   <tr>
-    <th>Firstname : </th> 
+    <th>Firstname : {{user.firstName}}</th> 
     <th></th>
   </tr>
   <tr>
-    <th>LastName : </th> 
+    <th>LastName : {{user.lastName}}</th> 
     <th></th>
   </tr>
  
   <tr>
-    <th>startTime : </th> 
+    <th>startTime : {{user.startTime | date :  "dd.MM.y"}}</th> 
     <th></th>
   </tr>
   <tr>
-    <th>endTime : </th> 
+    <th>endTime :{{user.endTime | date :  "dd.MM.y"}}</th> 
     <th></th>
   </tr>
       
      <tr>
-    <th>number of days off : </th> 
+    <th>number of days off : {{user.daysoff}}</th> 
     <th></th>
   </tr>
   <tr>
-    <th>number of days of delay :  </th> 
+    <th>number of days of delay :  {{user.nbdaysofdelay}}</th> 
     <th></th>
   </tr>
   <tr>
-    <th>number of days absent :  </th> 
+    <th>number of days absent :  {{user.nbabsence}}</th> 
     <th></th>
   </tr>
   <tr>
-    <th>salary :  </th> 
+    <th>salary :  {{user.salary}}</th> 
     <th></th>
   </tr>
   
