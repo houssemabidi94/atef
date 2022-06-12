@@ -74,4 +74,8 @@ public class UserService {
 		String hour =String.valueOf(workHour)+ ":"+String.valueOf(workMinute);
 		return hour;
 	}
+	
+	public void setNbDaysOff(String nb,long userID) {
+		scoreRepository.nbDaysOff(nb, userID);
+	}
 }

@@ -31,6 +31,10 @@ public interface ScoreRepository extends JpaRepository<Score, Long> {
 	@Query(value = "UPDATE user SET nb_heures =:nbHeures WHERE id =:userID", nativeQuery = true)
 	public void calculTimeDB(@Param("nbHeures") String nbHeures, @Param("userID") long userID);
 	
+	@Modifying
+	@Query(value = "UPDATE user SET nbdaysofdelay =:nb WHERE id =:userID", nativeQuery = true)
+	public void nbDaysOff(@Param("nb") String nb, @Param("userID") long userID);
+	
 	@Query(value ="SELECT date from score WHERE code_emp =:userID", nativeQuery = true)
 	public String findDateByUser(@Param("userID") long userID);
 	

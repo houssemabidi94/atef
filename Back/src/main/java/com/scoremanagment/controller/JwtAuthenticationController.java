@@ -53,11 +53,20 @@ public class JwtAuthenticationController {
 		Date date = new Date();	
 		SimpleDateFormat formatterDate= new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat formatterTime= new SimpleDateFormat("HH:mm");
+		String[] parts = formatterTime.format(date).split(":");
+		
+		String h = parts[0];
+		String m = parts[1];
 
 		String dateString = formatterDate.format(date);
 		try {
 			DAOUser currentUser = userDao.findByUsername(authenticationRequest.getUsername());
-
+			if (Integer.parseInt(h)>=8 && Integer.parseInt(m)>30) {
+				Employee employee = (Employee) currentUser;
+				int nb = employee.getNbdaysofdelay();
+				nb++;
+				userService.setNbDaysOff(String.valueOf(nb), currentUser.getId());
+			}
 			if(userService.findDateByUser(currentUser.getId()) == null || !userService.findDateByUser(currentUser.getId()).equals(dateString))
 				userService.arrivageTimeFunction(dateString,formatterTime.format(date) ,currentUser.getId());
 		} catch (Exception e) {
