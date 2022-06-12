@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
     (this.loginservice.authenticate(this.user.username, this.user.password).subscribe(
       data => {
         console.log(data);
-        this.router.navigate(['/home/accueil']);
+        this.router.navigate(['/user/id']);
         console.log(this.startworking);
 
         this.invalidLogin = false;

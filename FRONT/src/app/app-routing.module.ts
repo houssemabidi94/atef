@@ -7,14 +7,33 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { AllemployeesComponent } from './allemployees/allemployees.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ScoresComponent } from './scores/scores.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+import { RhprofileComponent } from './rhprofile/rhprofile.component';
 
 const routes: Routes = [
   {path:'',component:AuthComponent},
   {path:'auth',component:AuthComponent},
+  {path:'scores',component:ScoresComponent},
   {path:'all',component:AllemployeesComponent},
-  {path:'user',component:UserprofileComponent},
+  {path:'user',component:UserinfoComponent},
 
   {path:'create', component:CreateUserComponent},
+  {path:'user',component:UserprofileComponent,
+  children: [
+    {
+    path: 'id',
+    component:UserprofileComponent
+    },
+  ]},
+
+  {path:'rh',component:RhprofileComponent,
+  children: [
+    {
+    path: 'id',
+    component:RhprofileComponent
+    },
+  ]},
   {path:'home',canActivate:[AuthGuardService],component:AccueilComponent,
   children: [
     {

@@ -1,0 +1,45 @@
+<mat-toolbar color="primary" class="mat-elevation-z6" >   <mat-icon> work history </mat-icon><span class="ms-1">  Scoring System
+</span>
+<div class="spacer"></div>
+<a mat-button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='white'"  routerLink="/all">employees details</a>
+
+  <a mat-button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='white'" routerLink="/rh/id">profile </a>
+
+  <button class="button" mat-raised-button color="accent" routerLink="/create" >Add new employee</button> <br>
+  <button class="button" mat-raised-button color="accent" routerLink="/auth" >Logout</button>
+
+</mat-toolbar>
+
+<div class="panel panel-primary">
+  
+    <div class="panel-body">
+      <b>select a date : <div class="mt-1">
+         
+        <input type="datetime-local" class="form-control"
+         name="date" placeholder="date" required />
+      </div>
+        
+      </b>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+           <th>username</th>
+           <th>Date</th>
+           <th>startTime</th>
+           <th>endTime</th>
+           <th>number of worked hours</th>
+          
+  
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+<br>

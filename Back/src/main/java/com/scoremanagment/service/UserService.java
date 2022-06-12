@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.scoremanagment.config.JwtTokenUtil;
 import com.scoremanagment.entities.DAOUser;
+import com.scoremanagment.entities.Score;
 import com.scoremanagment.repository.ScoreRepository;
 import com.scoremanagment.repository.UserDao;
 
@@ -45,7 +46,32 @@ public class UserService {
 	public void arrivageTimeFunction(String date,String arrivageTime , long userID){
 		scoreRepository.arrivageTime(date,arrivageTime, userID);
 		}
-	public void sortiePointage(String tempSortie , long userID) {
-		scoreRepository.offTime(tempSortie, userID);
+	public void sortiePointage(String tempSortie , long userID, String date) {
+		scoreRepository.offTime(tempSortie, userID, date);
+	}
+	public String findDateByUser(long UserID) {
+		return scoreRepository.findDateByUser(UserID);
+	}
+	public String calculHeure(long UserID,String date) {
+		Score score = scoreRepository.findByUser(UserID,date);
+		
+		String heureEntree = score.getArrivalTime();
+		String heureSortie = score.getKnockingofftime();
+		
+		int arriveeH = Integer.parseInt(heureEntree.substring(0,2));
+		int arriveeM = Integer.parseInt(heureEntree.substring(3));
+		
+		int sortieH = Integer.parseInt(heureSortie.substring(0,2));
+		int sortieM = Integer.parseInt(heureSortie.substring(3));
+		
+		int workHour = sortieH - arriveeH;
+		int workMinute = sortieM-arriveeM;
+		
+		if(workMinute<0) {
+			workHour --;
+			workMinute = 59;
+		}	
+		String hour =String.valueOf(workHour)+ ":"+String.valueOf(workMinute);
+		return hour;
 	}
 }

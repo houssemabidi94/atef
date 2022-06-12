@@ -16,8 +16,13 @@ import { AllemployeesComponent } from './allemployees/allemployees.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from "./app.material-module";
 import { UserprofileComponent } from './userprofile/userprofile.component';
-
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon';
+import { ScoresComponent } from './scores/scores.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+import { RhprofileComponent } from './rhprofile/rhprofile.component'
 
 
 @NgModule({
@@ -29,15 +34,20 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     CreateUserComponent,
     AllemployeesComponent,
     UserprofileComponent,
+    ScoresComponent,
+    UserinfoComponent,
+    RhprofileComponent,
   ],
   imports: [
+    MatIconModule,
+    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
     HttpClientModule,
-    BrowserAnimationsModule,AppMaterialModule
+    BrowserAnimationsModule,AppMaterialModule,MatToolbarModule,MatSidenavModule
   ],
   
   providers: [

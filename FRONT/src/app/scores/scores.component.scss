@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+  }
+  th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+  }
+
+.spacer {
+    flex: 0.5 0.5 auto;
+  }
+
+  .ms-1 {
+    margin-left: 40px;
+  }
+  
+  .button {
+    border-radius: 50px;
+  }
+
+  button:hover{
+    background-color: rgb(247, 14, 142);
+  }
+
+
+  a {
+  
+  margin: 20px auto;
+  transition: transform .2s;
+  font-size: 17px;
+  }
+  a:hover {
+    transform: scale(1.5);
+
+   } 

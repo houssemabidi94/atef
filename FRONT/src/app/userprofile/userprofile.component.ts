@@ -10,7 +10,7 @@ import { User } from '../model/user';
 export class UserprofileComponent implements OnInit {
 
   constructor() { }
-
+date=new Date();
   ngOnInit() {
   }
   public displayedColumns = ['id','firstName', 'lastName', 'username', 'address','startTime',

@@ -27,7 +27,9 @@ public class DAOUser {
 	private String firstName;
 	private String lastName;
 	private String username;
+	@JsonIgnore
 	private String password;
+	private String nbHeures;
 	
 	
 	
@@ -87,6 +89,14 @@ public class DAOUser {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getNbHeures() {
+		return nbHeures;
+	}
+
+	public void setNbHeures(String nbHeures) {
+		this.nbHeures = nbHeures;
 	}
 
 

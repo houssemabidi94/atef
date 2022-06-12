@@ -14,4 +14,6 @@ export class CreateUserService {
     return this.http.post(`${this.baseUrl}`, user);
   }
 
+  
+
 }
