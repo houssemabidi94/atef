@@ -24,13 +24,19 @@
         <thead>
           <tr>
             <th>id</th>
-           <th>username</th>
            <th>Date</th>
            <th>startTime</th>
            <th>endTime</th>
            <th>number of worked hours</th>
           
   
+          </tr>
+          <tr *ngFor = "let scores of score">
+            <td>{{scores.id}}</td>
+            <td>{{scores.date}}</td>
+            <td>{{scores.arrivalTime}}</td>
+            <td>{{scores.knockingofftime}}</td>
+            <td>{{scores.emp.nbHeures}}</td>
           </tr>
         </thead>
         <tbody>

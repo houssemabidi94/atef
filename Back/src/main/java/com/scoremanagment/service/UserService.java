@@ -1,6 +1,7 @@
 package com.scoremanagment.service;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -77,5 +78,10 @@ public class UserService {
 	
 	public void setNbDaysOff(String nb,long userID) {
 		scoreRepository.nbDaysOff(nb, userID);
+	}
+	
+	public List<Score> getScoreByUser(long userID){
+		List<Score> scores = scoreRepository.findByUserId(userID);
+		return scores;
 	}
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.event.PublicInvocationEvent;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.scoremanagment.config.JwtTokenUtil;
 import com.scoremanagment.entities.DAOUser;
+import com.scoremanagment.entities.Score;
 import com.scoremanagment.repository.EmployeeRepository;
 import com.scoremanagment.repository.ScoreRepository;
 import com.scoremanagment.repository.UserDao;
@@ -105,4 +107,12 @@ public class AppController {
 
 		return userDao.findAllUsers();
 	}
+	
+	@GetMapping("/scores")
+	public List<Score> getScoresByUser(HttpServletRequest request){
+		DAOUser user = userService.getCurrentUser(request);
+		return userService.getScoreByUser(user.getId());
+	}
+	
+	
 } 

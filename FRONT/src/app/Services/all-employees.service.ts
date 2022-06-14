@@ -25,4 +25,9 @@ export class AllEmployeesService {
      {
        return this.http.get<any[]>("http://localhost:8085/user");
      }
+
+     getUserScore() : Observable<any>
+     {
+      return this.http.get<any[]>("http://localhost:8085/scores");
+     }
 }

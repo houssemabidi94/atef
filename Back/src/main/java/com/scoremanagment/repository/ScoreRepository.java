@@ -1,6 +1,7 @@
 package com.scoremanagment.repository;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -40,4 +41,9 @@ public interface ScoreRepository extends JpaRepository<Score, Long> {
 	
 	@Query(value ="SELECT * from score WHERE code_emp =:userID and date =:date", nativeQuery = true)
 	public Score findByUser(@Param("userID") long userID, @Param("date") String date);
+	
+	@Query(value ="SELECT s.*,u.* from score s JOIN user u WHERE u.id = s.code_emp and s.code_emp =:userID", nativeQuery = true)
+	public List<Score> findByUserId(@Param("userID") long userID);
+	
+	
 }

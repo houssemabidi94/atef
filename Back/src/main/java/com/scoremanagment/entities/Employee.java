@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -34,6 +36,7 @@ public class Employee extends DAOUser{
 	private int nbdaysofdelay;
 
 	@OneToMany(mappedBy="emp",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JsonIgnore
 	private Collection<Score> scores;
 
 	public DAOUser getSupemp() {

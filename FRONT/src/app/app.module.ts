@@ -22,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon';
 import { ScoresComponent } from './scores/scores.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
-import { RhprofileComponent } from './rhprofile/rhprofile.component'
+import { RhprofileComponent } from './rhprofile/rhprofile.component';
+import { UserScoreComponent } from './user-score/user-score.component'
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { RhprofileComponent } from './rhprofile/rhprofile.component'
     ScoresComponent,
     UserinfoComponent,
     RhprofileComponent,
+    UserScoreComponent,
   ],
   imports: [
     MatIconModule,

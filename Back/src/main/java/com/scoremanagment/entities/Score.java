@@ -1,6 +1,8 @@
 package com.scoremanagment.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +32,6 @@ public class Score {
 	private String knockingofftime;
 
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name = "code_emp")
 	private Employee emp;
 
