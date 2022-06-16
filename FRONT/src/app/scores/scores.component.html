@@ -6,7 +6,7 @@
   <a mat-button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='white'" routerLink="/rh/id">profile </a>
 
   <button class="button" mat-raised-button color="accent" routerLink="/create" >Add new employee</button> <br>
-  <button class="button" mat-raised-button color="accent" routerLink="/auth" >Logout</button>
+  <button class="button" mat-raised-button color="accent" routerLink="/auth" (click)='onSignOut()'>Logout</button>
 
 </mat-toolbar>
 
@@ -36,13 +36,14 @@
             <td>{{scores.date}}</td>
             <td>{{scores.arrivalTime}}</td>
             <td>{{scores.knockingofftime}}</td>
-            <td>{{scores.emp.nbHeures}}</td>
+            <td>{{scores.nbHeures}}</td>
           </tr>
         </thead>
         <tbody>
           
         </tbody>
       </table>
+      <h4>Nb heures total : {{user.nbHeures}}</h4>
     </div>
   </div>
 

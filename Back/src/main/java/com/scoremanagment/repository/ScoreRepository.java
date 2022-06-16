@@ -32,17 +32,22 @@ public interface ScoreRepository extends JpaRepository<Score, Long> {
 	@Query(value = "UPDATE user SET nb_heures =:nbHeures WHERE id =:userID", nativeQuery = true)
 	public void calculTimeDB(@Param("nbHeures") String nbHeures, @Param("userID") long userID);
 	
+	
+	@Modifying
+	@Query(value = "UPDATE score SET nb_heures =:nbHeures WHERE code_emp =:userID and date =:date", nativeQuery = true)
+	public void calculTimeDBScore(@Param("nbHeures") String nbHeures, @Param("userID") long userID, @Param("date") String date);
+	
 	@Modifying
 	@Query(value = "UPDATE user SET nbdaysofdelay =:nb WHERE id =:userID", nativeQuery = true)
 	public void nbDaysOff(@Param("nb") String nb, @Param("userID") long userID);
 	
 	@Query(value ="SELECT date from score WHERE code_emp =:userID", nativeQuery = true)
-	public String findDateByUser(@Param("userID") long userID);
+	public List<String> findDateByUser(@Param("userID") long userID);
 	
 	@Query(value ="SELECT * from score WHERE code_emp =:userID and date =:date", nativeQuery = true)
 	public Score findByUser(@Param("userID") long userID, @Param("date") String date);
 	
-	@Query(value ="SELECT s.*,u.* from score s JOIN user u WHERE u.id = s.code_emp and s.code_emp =:userID", nativeQuery = true)
+	@Query(value ="SELECT * from score  WHERE code_emp =:userID", nativeQuery = true)
 	public List<Score> findByUserId(@Param("userID") long userID);
 	
 	

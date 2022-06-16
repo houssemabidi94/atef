@@ -10,11 +10,13 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ScoresComponent } from './scores/scores.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import { RhprofileComponent } from './rhprofile/rhprofile.component';
+import { UserScoreComponent } from './user-score/user-score.component';
 
 const routes: Routes = [
   {path:'',component:AuthComponent},
   {path:'auth',component:AuthComponent},
   {path:'scores',component:ScoresComponent},
+  {path:'user-scores',component:UserScoreComponent},
   {path:'all',component:AllemployeesComponent},
   {path:'user',component:UserinfoComponent},
 

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
 import { AllEmployeesService } from '../Services/all-employees.service';
+import { AuthenticationService } from '../Services/authentication.service';
+import { PointageService } from '../Services/pointage.service';
 
 @Component({
   selector: 'app-userprofile',
@@ -14,8 +17,8 @@ export class UserprofileComponent implements OnInit {
 user : User = new User();
 
   constructor(
-   private  employeeService : AllEmployeesService,
-  ) { }
+   private  employeeService : AllEmployeesService,private authservice : AuthenticationService , private router : Router,
+    private pointageService : PointageService) { }
 date=new Date();
   ngOnInit() {
     this.getUserProfile();
@@ -28,5 +31,10 @@ date=new Date();
     this.employeeService.getUserProfile().subscribe(data =>
       this.user = data
     );
+  }
+  onSignOut(){
+    this.pointageService.pointageSortie();
+    this.authservice.logOut();
+    this.router.navigate(['/auth']);
   }
 }

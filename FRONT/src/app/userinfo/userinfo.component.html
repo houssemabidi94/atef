@@ -19,7 +19,7 @@
       <a mat-button onMouseOver="this.style.color='white'" onMouseOut="this.style.color='white'" routerLink="/user">profile </a>
     
       <button class="button" mat-raised-button color="accent" routerLink="/create" >Add new employee</button>
-      <button class="button" mat-raised-button color="accent" routerLink="/auth" >Logout</button>
+      <button class="button" mat-raised-button color="accent" routerLink="/auth" (click)='onSignOut()'>Logout</button>
 
     </mat-toolbar>
     

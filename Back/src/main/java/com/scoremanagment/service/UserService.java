@@ -1,6 +1,7 @@
 package com.scoremanagment.service;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,7 +51,7 @@ public class UserService {
 	public void sortiePointage(String tempSortie , long userID, String date) {
 		scoreRepository.offTime(tempSortie, userID, date);
 	}
-	public String findDateByUser(long UserID) {
+	public List<String> findDateByUser(long UserID) {
 		return scoreRepository.findDateByUser(UserID);
 	}
 	public String calculHeure(long UserID,String date) {
@@ -70,9 +71,10 @@ public class UserService {
 		
 		if(workMinute<0) {
 			workHour --;
-			workMinute = 59;
+			workMinute += 60;
 		}	
 		String hour =String.valueOf(workHour)+ ":"+String.valueOf(workMinute);
+		scoreRepository.calculTimeDBScore(hour, UserID,date);
 		return hour;
 	}
 	

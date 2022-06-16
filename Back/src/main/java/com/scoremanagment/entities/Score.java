@@ -30,6 +30,8 @@ public class Score {
 	private String arrivalTime;
 
 	private String knockingofftime;
+	
+	private String nbHeures;
 
 	@ManyToOne
 	@JoinColumn(name = "code_emp")

@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.event.PublicInvocationEvent;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,7 +62,9 @@ public class AppController {
 		Date date = new Date();	
 		SimpleDateFormat formatterDate= new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat formatterTime= new SimpleDateFormat("HH:mm");
+		userService.sortiePointage(formatterTime.format(date),user.getId(),formatterDate.format(date));
 		String hours = userService.calculHeure(user.getId(),formatterDate.format(date));
+	
 		String[] parts = hours.split(":");
 		
 		String h = parts[0];
@@ -88,9 +91,9 @@ public class AppController {
 		    minT = Integer.parseInt(m);
 		}
 
-		String timeString = heureT + ":" + minT;
+		String timeString = heureT + ":" + minT ;
 		try {
-			userService.sortiePointage(formatterTime.format(date),user.getId(),formatterDate.format(date));
+			userService.calculHeure(user.getId(),formatterDate.format(date));
 			scoreRepository.calculTimeDB(timeString, user.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,5 +117,8 @@ public class AppController {
 		return userService.getScoreByUser(user.getId());
 	}
 	
-	
+	@GetMapping("/scores/{id}")
+	public List<Score> getScoresByUserID(@PathVariable("id") long id){
+		return userService.getScoreByUser(id);
+	}
 } 

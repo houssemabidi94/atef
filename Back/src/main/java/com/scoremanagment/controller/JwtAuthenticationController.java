@@ -2,6 +2,7 @@ package com.scoremanagment.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -58,8 +59,9 @@ public class JwtAuthenticationController {
 		String h = parts[0];
 		String m = parts[1];
 
-		String dateString = formatterDate.format(date);
+		
 		try {
+			String dateString = formatterDate.format(date);
 			DAOUser currentUser = userDao.findByUsername(authenticationRequest.getUsername());
 			if (Integer.parseInt(h)>=8 && Integer.parseInt(m)>30) {
 				Employee employee = (Employee) currentUser;
@@ -67,8 +69,15 @@ public class JwtAuthenticationController {
 				nb++;
 				userService.setNbDaysOff(String.valueOf(nb), currentUser.getId());
 			}
-			if(userService.findDateByUser(currentUser.getId()) == null || !userService.findDateByUser(currentUser.getId()).equals(dateString))
-				userService.arrivageTimeFunction(dateString,formatterTime.format(date) ,currentUser.getId());
+			List<String> dates = userService.findDateByUser(currentUser.getId());
+			for (String string : dates) {
+				if(string.equals(dateString))
+					throw new Exception();
+					
+			}
+		//	if(userService.findDateByUser(currentUser.getId()) == null || !userService.findDateByUser(currentUser.getId()).equals(dateString))
+		//		userService.arrivageTimeFunction(dateString,formatterTime.format(date) ,currentUser.getId());
+			userService.arrivageTimeFunction(dateString,formatterTime.format(date) ,currentUser.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

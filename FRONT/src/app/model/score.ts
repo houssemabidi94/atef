@@ -6,5 +6,6 @@ export class Score{
     date : String;
     knockingofftime : String;
     emp : Employee;
+    nbHeures : String;
 
 }
